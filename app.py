@@ -11,7 +11,7 @@ init_db(app)
 def index():
 
     cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM users")
+    cur.execute("SELECT * FROM test")
 
     users = cur.fetchall()
 
@@ -29,7 +29,7 @@ def add():
 
     cur = mysql.connection.cursor()
 
-    cur.execute("INSERT INTO users(name,email) VALUES(%s,%s)",(name,email))
+    cur.execute("INSERT INTO test(name,email) VALUES(%s,%s)",(name,email))
 
     mysql.connection.commit()
     cur.close()
@@ -43,7 +43,7 @@ def delete(id):
 
     cur = mysql.connection.cursor()
 
-    cur.execute("DELETE FROM users WHERE id=%s",(id,))
+    cur.execute("DELETE FROM test WHERE id=%s",(id,))
 
     mysql.connection.commit()
     cur.close()
